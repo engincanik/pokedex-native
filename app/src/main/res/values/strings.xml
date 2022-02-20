@@ -5,4 +5,8 @@
     <string name="near_you_text">Look out! Pokémons near you</string>
     <string name="home_text">Home</string>
     <string name="my_pokemons">My Pokemons</string>
+    <string name="pokemon_image_desc">Pokemon Image</string>
+    <string name="type_2">Type 2</string>
+    <string name="type_1">Type 1</string>
+    <string name="pokemon_name_text">Pokemon Name</string>
 </resources>
