@@ -9,7 +9,7 @@
         android:title="" />
 
     <item android:id="@+id/navPokemon"
-        android:title="@string/my_pokemons"
+        android:title="@string/my_pokemon"
         android:icon="@drawable/ic_pokeball_outlined"/>
 
 </menu>

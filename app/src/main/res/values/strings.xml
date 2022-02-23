@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">pokedex</string>
+    <string name="app_name">Pokedex</string>
     <string name="pokedex_icon">Pokedex Icon</string>
     <string name="pokemon_search_text">What Pokémon are you looking for?</string>
-    <string name="near_you_text">Look out! Pokémons near you</string>
+    <string name="near_you_text">Look out! Pokémon near you</string>
     <string name="home_text">Home</string>
-    <string name="my_pokemons">My Pokemons</string>
+    <string name="my_pokemon">My Pokemon</string>
     <string name="pokemon_image_desc">Pokemon Image</string>
     <string name="type_2">Type 2</string>
     <string name="type_1">Type 1</string>

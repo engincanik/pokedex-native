@@ -1,7 +1,6 @@
 package com.engin.pokedex.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -58,36 +57,23 @@ class HomeFragment @Inject constructor(
             })*/
         binding.nearRecyclerView.adapter = nearRecyclerAdapter
         binding.nearRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.searchForPokemon("ditto")
     }
 
     private fun subscribeToObservers() {
-        viewModel.singlePokemon.observe(viewLifecycleOwner, { it ->
-            when (it.status) {
+        viewModel.searchRandomPokemon()
+        viewModel.randomPokemonList.observe(viewLifecycleOwner, { response ->
+            when (response.status) {
                 Status.SUCCESS -> {
-                    val pokemons = listOf(
-                        it.data!!,
-                        it.data,
-                        it.data,
-                        it.data,
-                        it.data,
-                        it.data,
-                        it.data,
-                        it.data,
-                        it.data,
-                        it.data,
-                        it.data,
-                        it.data
-                    )
-                    pokemons.let {
-                        nearRecyclerAdapter.pokemonList = pokemons
+                    response.data.let {
+                        nearRecyclerAdapter.pokemonList = it ?: listOf()
                     }
+                    binding.homeProgressBar.visibility = View.GONE
                 }
                 Status.LOADING -> {
-                    Log.i("HOME", "Loading")
+                    binding.homeProgressBar.visibility = View.VISIBLE
                 }
                 Status.ERROR -> {
-                    Log.i("HOME", "Error")
+                    binding.homeProgressBar.visibility = View.GONE
                 }
             }
         })

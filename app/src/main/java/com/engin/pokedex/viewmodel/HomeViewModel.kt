@@ -20,6 +20,10 @@ class HomeViewModel @Inject constructor(
     val singlePokemon: LiveData<Resource<Pokemon>>
         get() = pokemon
 
+    private val pokemonList = MutableLiveData<Resource<List<Pokemon>>>()
+    val randomPokemonList: LiveData<Resource<List<Pokemon>>>
+        get() = pokemonList
+
     fun searchForPokemon(pokemonName: String) {
         if (pokemonName.isEmpty()) {
             return
@@ -32,4 +36,13 @@ class HomeViewModel @Inject constructor(
         }
 
     }
+
+    fun searchRandomPokemon() {
+        pokemonList.value = Resource.loading(null)
+        viewModelScope.launch {
+            val response = repository.searchRandomPokemon()
+            pokemonList.value = response
+        }
+    }
+
 }

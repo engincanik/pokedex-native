@@ -11,4 +11,9 @@ interface RetrofitAPI {
     suspend fun pokemonSearch(
         @Path("POKEMON_NAME") pokemonName: String
     ): Response<Pokemon>
+
+    @GET("/api/v2/pokemon/{POKEMON_ID}")
+    suspend fun randomPokemonSearch(
+        @Path("POKEMON_ID") pokemonID: Int
+    ): Response<Pokemon>
 }

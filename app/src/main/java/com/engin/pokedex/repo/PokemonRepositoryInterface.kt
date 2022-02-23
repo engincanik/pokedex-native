@@ -6,4 +6,6 @@ import com.engin.pokedex.util.Resource
 interface PokemonRepositoryInterface {
 
     suspend fun searchPokemon(pokemonName: String): Resource<Pokemon>
+
+    suspend fun searchRandomPokemon(): Resource<List<Pokemon>>
 }
